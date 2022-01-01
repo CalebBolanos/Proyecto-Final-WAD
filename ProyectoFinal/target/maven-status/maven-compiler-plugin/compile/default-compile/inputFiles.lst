@@ -1,0 +1,17 @@
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/controlador/ProcesarInicioSesion.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dto/GraficaDTO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dao/UsuarioDAO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/utilerias/EnviarMail.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/entidades/Producto.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dao/GraficaDAO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dao/CategoriaDAO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/entidades/Usuario.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dto/ProductoDTO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/entidades/Categoria.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dto/CategoriaDTO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/controlador/CategoriaServlet.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dao/ProductoDAO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/controlador/CerrarSesion.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/controlador/UsuarioServlet.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/modelo/dto/UsuarioDTO.java
+/Users/calebbolanos/Documents/GitHub/Practica-Final-WAD/PracticaFinal/src/main/java/com/ipn/mx/controlador/ProductoServlet.java
