@@ -31,9 +31,9 @@ public class ProductoDAO {
     
     private Connection conexion;
     public Connection conectar(){
-        String user = "xmmeyaitffznjj";
-        String pwd = "91571a46f6c84003a03f0fa15acb521629fce3fc4677fbc0a1962051e0b14671";
-        String url = "jdbc:postgresql://ec2-54-158-247-97.compute-1.amazonaws.com:5432/ddcuf2h47ql3u5";
+        String user = "postgres";
+        String pwd = "admin";
+        String url="jdbc:postgresql://localhost:5432/Base3CM13";
         String pgDriver = "org.postgresql.Driver";
         
         try{
