@@ -23,5 +23,6 @@ public class Usuario implements Serializable{
     private String email;
     private String nombreUsuario;
     private String claveUsuario;
-    private String tipoUsuario;
+    //private String direccion;
+    
 }

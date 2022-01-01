@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ipn.mx</groupId>
-    <artifactId>PracticaFinal</artifactId>
+    <artifactId>ProyectoFinal</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
