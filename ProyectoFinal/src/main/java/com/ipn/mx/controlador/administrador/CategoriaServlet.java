@@ -86,6 +86,7 @@ public class CategoriaServlet extends HttpServlet {
                 mostrarGrafica(request, response);
                 break;
             default:
+                listaDeCategorias(request, response);
                 break;
         }
     }
