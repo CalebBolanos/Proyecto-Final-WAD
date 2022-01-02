@@ -23,8 +23,8 @@ import java.util.logging.Logger;
  */
 public class ProductoDAO {
     
-    private static final String SQL_INSERT="call spInsertarProducto(?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "update producto set nombreproducto = ?, descripcionproducto = ?, precio = ?, existencia = ?, stockminimo = ?, clavecategoria = ? where idproducto = ?";
+    private static final String SQL_INSERT="call spInsertarProducto(?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "update producto set nombreProducto = ?, descripcionProducto = ?, precio = ?, existencia = ?, stockMinimo = ?, imagenProducto = ?, claveCategoria = ? where idProducto = ?";
     private static final String SQL_DELETE="call spEliminarProducto(?)";
     private static final String SQL_READ="select * from seleccionarProducto(?)";
     private static final String SQL_READ_ALL="select * from seleccionaTodoProducto()";
@@ -32,8 +32,8 @@ public class ProductoDAO {
     private Connection conexion;
     public Connection conectar(){
         String user = "postgres";
-        String pwd = "admin";
-        String url="jdbc:postgresql://localhost:5432/Base3CM13";
+        String pwd = "Bowser:7";
+        String url="jdbc:postgresql://localhost:5432/Venta";
         String pgDriver = "org.postgresql.Driver";
         
         try{
@@ -56,7 +56,8 @@ public class ProductoDAO {
             ps.setFloat(3, dto.getEntidad().getPrecio());
             ps.setInt(4, dto.getEntidad().getExistencia());
             ps.setInt(5, dto.getEntidad().getStockMinimo());
-            ps.setInt(6, dto.getEntidad().getClaveCategoria());
+            ps.setString(6, dto.getEntidad().getImagenProducto());
+            ps.setInt(7, dto.getEntidad().getClaveCategoria());
             
             ps.executeUpdate();
             
@@ -80,8 +81,9 @@ public class ProductoDAO {
             ps.setFloat(3, dto.getEntidad().getPrecio());
             ps.setInt(4, dto.getEntidad().getExistencia());
             ps.setInt(5, dto.getEntidad().getStockMinimo());
-            ps.setInt(6, dto.getEntidad().getClaveCategoria());
-            ps.setInt(7, dto.getEntidad().getIdProducto());
+            ps.setString(6, dto.getEntidad().getImagenProducto());
+            ps.setInt(7, dto.getEntidad().getClaveCategoria());
+            ps.setInt(8, dto.getEntidad().getIdProducto());
             ps.executeUpdate();
         }finally{
             if(ps !=null){
@@ -166,6 +168,7 @@ public class ProductoDAO {
             dto.getEntidad().setPrecio(rs.getFloat("precio"));
             dto.getEntidad().setExistencia(rs.getInt("existencia"));
             dto.getEntidad().setStockMinimo(rs.getInt("stockMinimo"));
+            dto.getEntidad().setImagenProducto(rs.getString("imagenProducto"));
             dto.getEntidad().setClaveCategoria(rs.getInt("claveCategoria"));
             resultados.add(dto);
         }
@@ -176,20 +179,21 @@ public class ProductoDAO {
         ProductoDAO dao = new ProductoDAO();
         ProductoDTO dto = new ProductoDTO();
         
-        dto.getEntidad().setIdProducto(1);
-        dto.getEntidad().setNombreProducto("Huawei");
-        dto.getEntidad().setDescripcionProducto("Menos");
-        dto.getEntidad().setPrecio(1000);
-        dto.getEntidad().setExistencia(54);
+        dto.getEntidad().setIdProducto(3);
+        /*dto.getEntidad().setNombreProducto("cambiazo");
+        dto.getEntidad().setDescripcionProducto("jiji");
+        dto.getEntidad().setPrecio(542);
+        dto.getEntidad().setExistencia(31);
         dto.getEntidad().setStockMinimo(10);
-        dto.getEntidad().setClaveCategoria(1);
+        dto.getEntidad().setImagenProducto("imagen2");
+        dto.getEntidad().setClaveCategoria(1);*/
         
         try {
-//            dao.create(dto);
-            //dao.update(dto);
-            System.out.println(dao.readAll());
+            //dao.create(dto);
+            //dao.Update(dto);
+            //System.out.println(dao.readAll());
             //System.out.println(dao.read(dto));
-            //dao.delete(dto);
+            dao.delete(dto);
         } catch (SQLException ex) {
             Logger.getLogger(CategoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
