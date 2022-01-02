@@ -181,3 +181,36 @@ begin
 	end if;
 end;
 $$;
+
+
+create or replace function public.SesionAdmin(nombre_admin varchar, contra varchar) 
+returns int 
+language plpgsql
+as $$
+declare
+	existe int;
+begin
+	existe := (select count(*) from public.administrador where usuario = nombre_admin and contrasena = contra); 
+	if(existe = 1) then
+		return (select idadministrador from public.administrador where usuario = nombre_admin and contrasena = contra);
+	else
+		return 0;
+	end if;
+end;
+$$;
+
+create or replace function public.SesionPro(mail varchar, contra varchar) 
+returns int 
+language plpgsql
+as $$
+declare
+	existe int;
+begin
+	existe := (select count(*) from public.proveedor where correo = mail and clave = contra); 
+	if(existe = 1) then
+		return (select idproveedor from public.proveedor where correo = mail and clave = contra);
+	else
+		return 0;
+	end if;
+end;
+$$;
