@@ -32,16 +32,16 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar app elevation="5" style=" background-color: rgba(255, 255, 255, 0.5) !important; backdrop-filter: saturate(180%) blur(20px) !important;">
+                <v-app-bar app style=" background-color: rgba(255, 255, 255, 0.5) !important; backdrop-filter: saturate(180%) blur(20px) !important;">
 
                     <v-app-bar-title>ElectrodoShop</v-app-bar-title>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text rounded href="#">Inicio</v-btn>
-                    <v-btn color="secondary" text rounded href="crearCuenta.jsp">Categorías</v-btn>
-                    <v-btn color="secondary" text rounded href="crearCuenta.jsp">Proveedores</v-btn>
-                    <v-btn color="secondary" text rounded href="crearCuenta.jsp">Productos</v-btn>
-                    <v-btn color="secondary" text rounded href="crearCuenta.jsp">Clientes</v-btn>
-                    <v-btn color="secondary" text rounded href="crearCuenta.jsp">Administradores</v-btn>
+                    <v-btn color="secondary" text rounded href="CategoriaServlet?accion=listaDeCategorias">Categorías</v-btn>
+                    <v-btn color="secondary" text rounded href="ProveedorServlet?accion=listaDeProveedores">Proveedores</v-btn>
+                    <v-btn color="secondary" text rounded href="ProductoServlet?accion=listaDeProductos">Productos</v-btn>
+                    <v-btn color="secondary" text rounded href="ClienteServlet?accion=listaDeClientes">Clientes</v-btn>
+                    <v-btn color="secondary" text rounded href="AdministradorServlet?accion=listaDeAdministradores">Administradores</v-btn>
                     <v-spacer></v-spacer>
                     <v-menu left bottom offset-y rounded="lg">
                         <template v-slot:activator="{ on, attrs }">
@@ -68,7 +68,7 @@
                             </v-list-item>
 
                             <v-divider></v-divider>
-                            <v-list-item href="configuracionCuenta">
+                            <v-list-item href="AdministradorServlet?accion=listaDeAdministradores">
                                 <v-list-item-title>Configuración de Administradores</v-list-item-title>
                             </v-list-item>
                             <v-list-item href="../CerrarSesion">
@@ -84,15 +84,31 @@
                 <v-main class="grey lighten-2">
                     <v-container>
                         <v-row>
-                            <v-col cols="12" class="py-10 ">
-                                <h1 class="text-center">¿Qué es ElectrodoShop?</h1>
-                                <p class="text-center"> ElectrodoShop es una tienda en línea de electrodomesticos en la cual 
-                                    los clientes pueden disponer de cientos de articulos distribuidos por distintos proveedores dentro de nuestra plataforma.</p>
-                            </v-col>
                             <v-col cols="12" class="">
-                                <h1 class="text-center">ElectrodoShop cuenta con:</h1>
+                                <h2 class="">Elige una opción:</h2>
                             </v-col>
-                            <v-col cols="12" sm="6">
+                            <v-col cols="12" sm="4">
+                                <v-card >
+                                    <v-card-title class="justify-center">
+                                        <v-avatar color="primary" size="92">
+                                            <v-icon dark size="48">
+                                                mdi-book-variant
+                                            </v-icon>
+                                        </v-avatar>
+                                    </v-card-title>
+
+                                    <v-card-title class="text-h5 justify-center pt-0">
+                                        Categorías
+                                    </v-card-title>
+
+                                    <v-card-actions class="justify-center">
+                                        <v-btn text color="primary" href="CategoriaServlet?accion=listaDeCategorias">
+                                            Crud de Categorías
+                                        </v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="4">
                                 <v-card >
                                     <v-card-title class="justify-center">
                                         <v-avatar color="primary" size="92">
@@ -106,19 +122,35 @@
                                         Proveedores
                                     </v-card-title>
 
-                                    <v-card-subtitle>Vende tus productos a través de la plataforma.</v-card-subtitle>
-
                                     <v-card-actions class="justify-center">
                                         <v-btn text color="primary">
-                                            Crear Cuenta
-                                        </v-btn>
-                                        <v-btn text>
-                                            Iniciar Sesión
+                                            Crud de Proveedores
                                         </v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-col>
-                            <v-col cols="12" sm="6">
+                            <v-col cols="12" sm="4">
+                                <v-card >
+                                    <v-card-title class="justify-center">
+                                        <v-avatar color="primary" size="92">
+                                            <v-icon dark size="48">
+                                                mdi-package-variant
+                                            </v-icon>
+                                        </v-avatar>
+                                    </v-card-title>
+
+                                    <v-card-title class="text-h5 justify-center pt-0">
+                                        Productos
+                                    </v-card-title>
+
+                                    <v-card-actions class="justify-center">
+                                        <v-btn text color="primary">
+                                            Crud de Productos
+                                        </v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="4">
                                 <v-card >
                                     <v-card-title class="justify-center">
                                         <v-avatar color="primary" size="92">
@@ -131,22 +163,33 @@
                                     <v-card-title class="text-h5 justify-center pt-0">
                                         Clientes
                                     </v-card-title>
-
-                                    <v-card-subtitle>Compra y elige entre cientos de productos electrónicos disponibles.</v-card-subtitle>
-
                                     <v-card-actions class="justify-center">
                                         <v-btn text color="primary">
-                                            Crear Cuenta
-                                        </v-btn>
-                                        <v-btn text>
-                                            Iniciar Sesión
+                                            Crud de Clientes
                                         </v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-col>
-                            <v-col cols="12" class="">
-                            </v-col>
+                            <v-col cols="12" sm="4">
+                                <v-card >
+                                    <v-card-title class="justify-center">
+                                        <v-avatar color="primary" size="92">
+                                            <v-icon dark size="48">
+                                                mdi-account-lock
+                                            </v-icon>
+                                        </v-avatar>
+                                    </v-card-title>
 
+                                    <v-card-title class="text-h5 justify-center pt-0">
+                                        Administradores
+                                    </v-card-title>
+                                    <v-card-actions class="justify-center">
+                                        <v-btn text color="primary">
+                                            Crud de Administradores
+                                        </v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
                         </v-row>
 
                     </v-container>
