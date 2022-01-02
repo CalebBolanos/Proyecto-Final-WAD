@@ -21,19 +21,19 @@ import java.util.logging.Logger;
  */
 public class UsuarioDAO {
     
-    private static final String SQL_INSERT = "insert into usuario (Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario) values (?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "update usuario set Nombre = ?, Paterno = ?, Materno = ?, email = ?, nombreUsuario = ?, claveUsuario = ? where idUsuario = ?;";
+    private static final String SQL_INSERT = "insert into usuario (Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario, direccion) values (?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "update usuario set Nombre = ?, Paterno = ?, Materno = ?, email = ?, nombreUsuario = ?, claveUsuario = ?, direccion = ? where idUsuario = ?;";
     private static final String SQL_DELETE = "delete from usuario where idUsuario = ?";
-    private static final String SQL_READ = "select idUsuario, Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario from usuario where idUsuario = ?";
-    private static final String SQL_READ_ALL = "select idUsuario, Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario from usuario";
+    private static final String SQL_READ = "select idUsuario, Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario, direccion from usuario where idUsuario = ?";
+    private static final String SQL_READ_ALL = "select idUsuario, Nombre, Paterno, Materno, email, nombreUsuario, claveUsuario, direccion from usuario";
     private static final String SQL_INICIAR_SESION = "select iniciarSesion(?, ?);";
 
     private Connection conexion;
     
     public Connection conectar() {
         String user = "postgres";
-        String pwd = "admin";
-        String url="jdbc:postgresql://localhost:5432/Base3CM13";
+        String pwd = "Bowser:7";
+        String url="jdbc:postgresql://localhost:5432/Venta";
         String pgDriver = "org.postgresql.Driver";
         try {
             Class.forName(pgDriver);
@@ -55,6 +55,7 @@ public class UsuarioDAO {
             ps.setString(4, dto.getEntidad().getEmail());
             ps.setString(5, dto.getEntidad().getNombreUsuario());
             ps.setString(6, dto.getEntidad().getClaveUsuario());
+            ps.setString(7, dto.getEntidad().getDireccion());
             ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -78,7 +79,8 @@ public class UsuarioDAO {
             ps.setString(4, dto.getEntidad().getEmail());
             ps.setString(5, dto.getEntidad().getNombreUsuario());
             ps.setString(6, dto.getEntidad().getClaveUsuario());
-            ps.setInt(7, dto.getEntidad().getIdUsuario());
+            ps.setString(7, dto.getEntidad().getDireccion());
+            ps.setInt(8, dto.getEntidad().getIdUsuario());
             ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -141,6 +143,7 @@ public class UsuarioDAO {
             dto.getEntidad().setEmail(rs.getString("email"));
             dto.getEntidad().setNombreUsuario(rs.getString("nombreUsuario"));
             dto.getEntidad().setClaveUsuario(rs.getString("claveUsuario"));
+            dto.getEntidad().setDireccion(rs.getString("direccion"));
             resultados.add(dto);
         }
         return resultados;
@@ -203,15 +206,17 @@ public class UsuarioDAO {
         
         UsuarioDTO dto = new UsuarioDTO();
         dto.getEntidad().setIdUsuario(2);
-//        dto.getEntidad().setNombre("Caleb");
-//        dto.getEntidad().setPaterno("Bolaños");
-//        dto.getEntidad().setMaterno("Ramos");
-//        dto.getEntidad().setEmail("bolanos.c@hotmail.com");
-//        dto.getEntidad().setNombreUsuario("caleb");
-//        dto.getEntidad().setClaveUsuario("1234");
+        /*dto.getEntidad().setNombre("prueba");
+        dto.getEntidad().setPaterno("cambiado");
+        dto.getEntidad().setMaterno("ro");
+        dto.getEntidad().setEmail("b@hotmail.com");
+        dto.getEntidad().setNombreUsuario("ci");
+        dto.getEntidad().setClaveUsuario("si");
+        dto.getEntidad().setDireccion("col");*/
         
         try{
-//            System.out.println(dao.iniciarSesion(dto));
+            //System.out.println(dao.iniciarSesion(dto));
+            //dao.create(dto);
             //dao.update(dto);
             System.out.println(dao.readAll());
             //System.out.println(dao.read(dto));

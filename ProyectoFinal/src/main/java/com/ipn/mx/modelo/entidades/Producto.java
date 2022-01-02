@@ -25,6 +25,7 @@ public class Producto implements Serializable{
     private float precio;
     private int existencia;
     private int stockMinimo;
+    private String imagenProducto;
     private int claveCategoria;
-    //private String imagenProducto;
+
 }

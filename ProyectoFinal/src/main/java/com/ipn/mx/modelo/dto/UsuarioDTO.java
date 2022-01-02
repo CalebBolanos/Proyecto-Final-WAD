@@ -34,6 +34,7 @@ public class UsuarioDTO implements Serializable{
         sb.append("email: ").append(getEntidad().getEmail()).append("\n");
         sb.append("nombreUsuario: ").append(getEntidad().getNombreUsuario()).append("\n");
         sb.append("claveUsuario: ").append(getEntidad().getClaveUsuario()).append("\n");
+        sb.append("direccion: ").append(getEntidad().getDireccion()).append("\n");
         
         return sb.toString();
     }
