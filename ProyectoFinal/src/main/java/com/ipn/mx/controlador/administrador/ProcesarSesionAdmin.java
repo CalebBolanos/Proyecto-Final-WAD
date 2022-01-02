@@ -88,7 +88,7 @@ public class ProcesarSesionAdmin extends HttpServlet {
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("dtoAdministrador", dto);
 
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("inicio.jsp");
                 } else {
                     response.sendRedirect("iniciarSesion.jsp?msg=Usuario o contraseña incorrecta");
                 }

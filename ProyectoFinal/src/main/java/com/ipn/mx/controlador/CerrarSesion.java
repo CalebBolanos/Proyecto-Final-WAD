@@ -33,7 +33,7 @@ public class CerrarSesion extends HttpServlet {
             throws ServletException, IOException {
         HttpSession sesion = request.getSession();
         sesion.invalidate();
-        response.sendRedirect("iniciarSesion.jsp");
+        response.sendRedirect("index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
