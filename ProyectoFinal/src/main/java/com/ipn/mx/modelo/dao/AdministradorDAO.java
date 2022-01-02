@@ -31,7 +31,7 @@ public class AdministradorDAO {
     
     public Connection conectar() {
         String user = "postgres";
-        String pwd = "Bowser:7";
+        String pwd = "n0m3l0s3";
         String url="jdbc:postgresql://localhost:5432/Venta";
         String pgDriver = "org.postgresql.Driver";
         try {

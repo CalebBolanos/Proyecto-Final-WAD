@@ -122,7 +122,7 @@
                     <v-row justify="center" no-gutters align="center">
                         <v-col class="py-4 px-5 text-center white--text" cols="4">
                             <strong>Proyecto Final - Web Application Development</strong><br>
-                            <strong>3CM12</strong>
+                            <strong>3CM13</strong>
                         </v-col>
                         <v-col class="py-4 white--text text-center" cols="4">
                             <strong>Integrantes del equipo:</strong><br>
@@ -131,7 +131,7 @@
                         </v-col>
                         <v-col class="py-4 white--text text-center" cols="4">
                             <strong>Para administradores:</strong><br>
-                            <v-btn text color="white">
+                            <v-btn text color="white" href="administrador/iniciarSesion.jsp">
                                 Iniciar Sesión
                             </v-btn><br>
                         </v-col>

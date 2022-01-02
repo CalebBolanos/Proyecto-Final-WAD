@@ -25,7 +25,7 @@
                     <v-container fluid fill-height>
                         <v-layout align-center justify-center>
                             <v-flex xs12 sm8 md4>
-                                <form method="POST" action="ProcesarInicioSesion">
+                                <form method="POST" action="ProcesarSesionAdmin">
                                     <v-card class="elevation-0" rounded="lg">
                                         <v-card-title class="d-flex align-center justify-center py-7">
 

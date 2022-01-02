@@ -30,8 +30,8 @@ public class GraficaDAO {
     
     private void conectar(){
         String user = "postgres";
-        String pwd = "admin";
-        String url="jdbc:postgresql://localhost:5432/Base3CM13";
+        String pwd = "n0m3l0s3";
+        String url="jdbc:postgresql://localhost:5432/Venta";
         String pgDriver = "org.postgresql.Driver";
         
         try{
