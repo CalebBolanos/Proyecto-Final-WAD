@@ -123,7 +123,7 @@
                                     </v-card-title>
 
                                     <v-card-actions class="justify-center">
-                                        <v-btn text color="primary">
+                                        <v-btn text color="primary" href="ProveedorServlet?accion=listaDeProveedores">
                                             Crud de Proveedores
                                         </v-btn>
                                     </v-card-actions>
@@ -144,7 +144,7 @@
                                     </v-card-title>
 
                                     <v-card-actions class="justify-center">
-                                        <v-btn text color="primary">
+                                        <v-btn text color="primary" href="ProductoServlet?accion=listaDeProductos">
                                             Crud de Productos
                                         </v-btn>
                                     </v-card-actions>
@@ -164,7 +164,7 @@
                                         Clientes
                                     </v-card-title>
                                     <v-card-actions class="justify-center">
-                                        <v-btn text color="primary">
+                                        <v-btn text color="primary" href="ClienteServlet?accion=listaDeClientes">
                                             Crud de Clientes
                                         </v-btn>
                                     </v-card-actions>
@@ -184,7 +184,7 @@
                                         Administradores
                                     </v-card-title>
                                     <v-card-actions class="justify-center">
-                                        <v-btn text color="primary">
+                                        <v-btn text color="primary" href="AdministradorServlet?accion=listaDeAdministradores">
                                             Crud de Administradores
                                         </v-btn>
                                     </v-card-actions>
