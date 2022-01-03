@@ -3,7 +3,6 @@ com/ipn/mx/modelo/dao/CategoriaDAO.class
 com/ipn/mx/modelo/dao/UsuarioDAO.class
 com/ipn/mx/modelo/entidades/Categoria.class
 com/ipn/mx/modelo/entidades/Venta.class
-com/ipn/mx/controlador/UsuarioServlet.class
 com/ipn/mx/modelo/dao/AdministradorDAO.class
 com/ipn/mx/modelo/dto/UsuarioDTO.class
 com/ipn/mx/modelo/dao/ProductoDAO.class
@@ -13,9 +12,7 @@ com/ipn/mx/controlador/proveedor/ProductoServlet.class
 com/ipn/mx/utilerias/EnviarMail.class
 com/ipn/mx/controlador/administrador/ClienteServlet.class
 com/ipn/mx/modelo/dao/GraficaDAO.class
-com/ipn/mx/controlador/CategoriaServlet.class
 com/ipn/mx/modelo/entidades/Administrador.class
-com/ipn/mx/controlador/ProductoServlet.class
 com/ipn/mx/controlador/GuardarUsuario.class
 com/ipn/mx/controlador/ProcesarInicioSesion.class
 com/ipn/mx/modelo/dto/GraficaDTO.class

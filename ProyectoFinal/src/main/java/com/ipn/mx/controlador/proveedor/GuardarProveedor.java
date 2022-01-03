@@ -7,6 +7,7 @@ package com.ipn.mx.controlador.proveedor;
 import com.ipn.mx.controlador.administrador.ProveedorServlet;
 import com.ipn.mx.modelo.dao.ProveedorDAO;
 import com.ipn.mx.modelo.dto.ProveedorDTO;
+import com.ipn.mx.utilerias.EnviarMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -76,6 +77,13 @@ public class GuardarProveedor extends HttpServlet {
             dto.getEntidad().setWeb(request.getParameter("txtWeb"));
             dto.getEntidad().setDireccion(request.getParameter("txtDireccion"));
             dao.create(dto);
+
+            EnviarMail email = new EnviarMail();
+            String destinatario = dto.getEntidad().getCorreo();
+            String asunto = "Registro en plataforma exitoso";
+            String texto = "Ustede ha sido registrado en plataforma de forma exitosa...";
+            email.enviarCorreo(destinatario, asunto, texto);
+
             response.sendRedirect("iniciarSesion.jsp?msg=Registro completado. Ahora puedes iniciar sesion");
         } catch (SQLException ex) {
             Logger.getLogger(GuardarProveedor.class.getName()).log(Level.SEVERE, null, ex);

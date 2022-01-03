@@ -34,7 +34,7 @@
                                         </v-card-title>
                                         <v-card-text>
                                             <p class="title font-weight-semibold text--primary mb-2">
-                                                Crear cuenta de proveedor
+                                                Crear cuenta de cliente
                                             </p>
                                             <p class="mb-2">
                                                 Llena el siguiente formulario para ingresar a la plataforma

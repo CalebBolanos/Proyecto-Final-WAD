@@ -2,15 +2,12 @@
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/UsuarioDTO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/ProductoServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/ProductoDAO.java
-/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/ProductoServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Producto.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/VentaDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/ProveedorDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Proveedor.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Venta.java
-/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/UsuarioServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/GraficaDTO.java
-/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/CategoriaServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/CategoriaServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/GraficaDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/ProveedorDTO.java

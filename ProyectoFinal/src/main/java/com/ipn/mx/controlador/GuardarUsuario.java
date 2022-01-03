@@ -4,9 +4,9 @@
  */
 package com.ipn.mx.controlador;
 
-
 import com.ipn.mx.modelo.dao.UsuarioDAO;
 import com.ipn.mx.modelo.dto.UsuarioDTO;
+import com.ipn.mx.utilerias.EnviarMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -78,10 +78,16 @@ public class GuardarUsuario extends HttpServlet {
             dto.getEntidad().setClaveUsuario(request.getParameter("txtClaveUsuario"));
             dto.getEntidad().setDireccion(request.getParameter("txtDireccion"));
             dao.create(dto);
-            
+
+            EnviarMail email = new EnviarMail();
+            String destinatario = dto.getEntidad().getEmail();
+            String asunto = "Registro en plataforma exitoso";
+            String texto = "Ustede ha sido registrado en plataforma de forma exitosa...";
+            email.enviarCorreo(destinatario, asunto, texto);
+
             request.setAttribute("mensaje", "Cliente agregado con exito.");
             response.sendRedirect("iniciarSesion.jsp?msg=Registro completado. Ahora puedes iniciar sesion");
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(GuardarUsuario.class.getName()).log(Level.SEVERE, null, ex);
             response.sendRedirect("crearCuenta.jsp?msg=Llena todo el formulario");

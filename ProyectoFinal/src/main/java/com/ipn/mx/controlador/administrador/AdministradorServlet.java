@@ -158,7 +158,7 @@ public class AdministradorServlet extends HttpServlet {
                 dao.update(dto);            
                 request.setAttribute("mensaje", "Administrador actualizado con exito.");
             }else{
-                dao.create(dto);            
+                dao.create(dto);
                 request.setAttribute("mensaje", "Administrador agregado con exito.");
             }            
             
