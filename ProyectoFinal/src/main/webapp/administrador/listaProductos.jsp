@@ -91,10 +91,10 @@
 
                             </v-col>
                             <v-col cols="4" class="">
-                                <!--
+                                
                                 <v-btn color="primary" href="ProductoServlet?accion=graficar" target="_blank">Mostrar Gráfica</v-btn>
                                 <v-btn color="error" href="ProductoServlet?accion=verReporte" target="_blank">Mostrar Reporte</v-btn>
-                                -->
+                                
                             </v-col>
                             <v-col cols="12" class="">
                                 <v-simple-table>

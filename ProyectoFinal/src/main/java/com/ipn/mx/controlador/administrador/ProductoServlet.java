@@ -6,15 +6,18 @@ package com.ipn.mx.controlador.administrador;
 
 import com.ipn.mx.modelo.dao.ProductoDAO;
 import com.ipn.mx.modelo.dto.ProductoDTO;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +25,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperRunManager;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -79,10 +90,10 @@ public class ProductoServlet extends HttpServlet {
                 mostrarProducto(request, response);
                 break;
             case "verReporte":
-                //mostrarReporte(request, response);
+                mostrarReporte(request, response);
                 break;
             case "graficar":
-                //mostrarGrafica(request, response);
+                mostrarGrafica(request, response);
                 break;
             default:
                 listaDeProductos(request, response);
@@ -258,5 +269,61 @@ public class ProductoServlet extends HttpServlet {
         } catch (SQLException | ServletException | IOException ex) {
             Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void mostrarReporte(HttpServletRequest request, HttpServletResponse response) {
+        ProductoDAO dao = new ProductoDAO();
+        try {
+            ServletOutputStream sos = response.getOutputStream();
+            File reporte = new File(getServletConfig().getServletContext().getRealPath("/reportes/ReporteGeneralProductos.jasper"));
+            byte[] b = JasperRunManager.runReportToPdf(reporte.getPath(), null, dao.conectar());
+            response.setContentType("application/pdf");
+            response.setContentLength(b.length);
+            
+            sos.write(b,0,b.length);
+            sos.flush();
+            sos.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void mostrarGrafica(HttpServletRequest request, HttpServletResponse response) {
+        
+        JFreeChart graficaProductos = ChartFactory.createBarChart(
+         "Productos",           
+         "",            
+         "Existencia",            
+         obtenerExistenciaProductos(),          
+         PlotOrientation.VERTICAL,           
+         true, true, false);
+        
+        String archivo = getServletConfig().getServletContext().getRealPath("/graficaProductos.png");
+        try {
+            ChartUtils.saveChartAsPNG(new File(archivo), graficaProductos, 1000, 500);
+            RequestDispatcher vista = request.getRequestDispatcher("graficaProductos.jsp");
+            vista.forward(request, response);
+        } catch (IOException | ServletException ex) {
+            Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private CategoryDataset obtenerExistenciaProductos(){
+        DefaultCategoryDataset dataset  = new DefaultCategoryDataset();
+        ProductoDAO dao = new ProductoDAO();
+        try {
+            List datos = dao.readAll();
+            for (int i = 0; i < datos.size(); i++) {
+                ProductoDTO dto = (ProductoDTO) datos.get(i);
+                dataset.addValue(dto.getEntidad().getExistencia(), "("+dto.getEntidad().getIdProducto()+") "+dto.getEntidad().getNombreProducto(), "Producto");
+                //dataset.addValue(dto.getEntidad().getExistencia(),"Producto", "("+dto.getEntidad().getIdProducto()+") "+dto.getEntidad().getNombreProducto());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dataset;
     }
 }
