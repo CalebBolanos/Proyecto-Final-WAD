@@ -3,7 +3,7 @@
     Created on : 3 ene. 2022, 12:06:08
     Author     : calebbolanos
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.ipn.mx.modelo.dto.UsuarioDTO"%>
 <%@page import="com.ipn.mx.modelo.dto.ProveedorDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +28,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js" ></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-        <title>Administrador - Inicio</title>
+        <title>Usuario - Inicio</title>
     </head>
     <body>
         <div id="app">
@@ -38,8 +38,8 @@
                     <v-app-bar-title>ElectrodoShop</v-app-bar-title>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text rounded href="#">Inicio</v-btn>
-                    <v-btn color="secondary" text rounded href="ProductoServlet?accion=listaDeProductos">Historial de Compra</v-btn>
-                    <v-btn color="secondary" text rounded href="ProveedorServlet?accion=ver">Configuracion de cuenta</v-btn>
+                    <v-btn color="secondary" text rounded href="ControladorUsuario?accion=historial">Historial de Compra</v-btn>
+                    <v-btn color="secondary" text rounded href="ControladorUsuario?accion=cuenta">Configuracion de cuenta</v-btn>
                     <v-spacer></v-spacer>
                     <v-menu left bottom offset-y rounded="lg">
                         <template v-slot:activator="{ on, attrs }">
@@ -66,7 +66,7 @@
                             </v-list-item>
 
                             <v-divider></v-divider>
-                            <v-list-item href="ProveedorServlet?accion=ver">
+                            <v-list-item href="ControladorUsuario?accion=cuenta">
                                 <v-list-item-title>Configuración de cuenta</v-list-item-title>
                             </v-list-item>
                             <v-list-item href="../CerrarSesion">
@@ -82,55 +82,58 @@
                 <v-main class="grey lighten-2">
                     <v-container>
                         <v-row>
+
                             <v-col cols="12" class="">
-                                <h2 class="">Elige una opción:</h2>
+                                <h2 class="">Todos los productos:</h2>
                             </v-col>
-                            <v-col cols="12" sm="6">
-                                <v-card >
-                                    <v-card-title class="justify-center">
-                                        <v-avatar color="primary" size="92">
-                                            <v-icon dark size="48">
-                                                mdi-package-variant
-                                            </v-icon>
-                                        </v-avatar>
-                                    </v-card-title>
+                            <c:forEach var="dto" items="${listaDeProductos}">
+                                <v-col cols="12" md="3" sm="6">
+                                    <v-card>
+                                        <v-img
+                                            height="300"
+                                            src="../imagenes/productos/1.jpeg"
+                                            ></v-img>
 
-                                    <v-card-title class="text-h5 justify-center pt-0">
-                                        Productos
-                                    </v-card-title>
-
-                                    <v-card-actions class="justify-center">
-                                        <v-btn text color="primary" href="ProductoServlet?accion=listaDeProductos">
-                                            Ver todos los Productos
-                                        </v-btn>
-                                    </v-card-actions>
-                                </v-card>
-                            </v-col>
-                            <v-col cols="12" sm="6">
-                                <v-card >
-                                    <v-card-title class="justify-center">
-                                        <v-avatar color="primary" size="92">
-                                            <v-icon dark size="48">
-                                                mdi-account-group
-                                            </v-icon>
-                                        </v-avatar>
-                                    </v-card-title>
-
-                                    <v-card-title class="text-h5 justify-center pt-0">
-                                        Cuenta
-                                    </v-card-title>
-                                    <v-card-actions class="justify-center">
-                                        <v-btn text color="primary" href="ProveedorServlet?accion=ver">
-                                            Configuracion de cuenta
-                                        </v-btn>
-                                    </v-card-actions>
-                                </v-card>
-                            </v-col>
+                                        <v-card-title><c:out value="${ dto.entidad.nombreProducto }"/></v-card-title>
+                                        <v-card-text>
+                                            <div class="text-subtitle-1">
+                                                $<c:out value="${ dto.entidad.precio }"/> • <c:out value="${ dto.entidad.existencia }"/> Disponibles
+                                            </div>
+                                            <div class="my-1"><c:out value="${ dto.entidad.descripcionProducto }"/></div>
+                                        </v-card-text>
+                                        <v-divider class="mx-4"></v-divider>
+                                        <v-card-actions>
+                                            <v-btn color="primary" href="ControladorUsuario?accion=comprar&id=<c:out value="${ dto.entidad.idProducto }"/>">
+                                                Comprar
+                                            </v-btn>
+                                            <v-btn color="primary" outlined href="ControladorUsuario?accion=verProducto&id=<c:out value="${ dto.entidad.idProducto }"/>">
+                                                Ver más
+                                            </v-btn>
+                                        </v-card-actions>
+                                    </v-card>
+                                </v-col>
+                            </c:forEach>
+                            
                         </v-row>
+                        <c:if test="${mensaje != null}">
+                                <v-snackbar :value="true" :timeout="4000">
+                                    ${mensaje}
 
+                                    <template v-slot:action="{ attrs }">
+                                        <v-btn
+                                            color="primary"
+                                            text
+                                            v-bind="attrs"
+                                            @click="snackbar = false"
+                                            >
+                                            Cerrar
+                                        </v-btn>
+                                    </template>
+                                </v-snackbar>
+                            </c:if>
                     </v-container>
                 </v-main>
-                
+
             </v-app>
 
         </div>

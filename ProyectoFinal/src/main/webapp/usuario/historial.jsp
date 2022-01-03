@@ -1,6 +1,6 @@
 <%-- 
-    Document   : inicio
-    Created on : 3 ene. 2022, 12:06:08
+    Document   : historial
+    Created on : 3 ene. 2022, 13:26:44
     Author     : calebbolanos
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,7 +28,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js" ></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-        <title>Usuario - Inicio</title>
+        <title>Usuario - Historial</title>
     </head>
     <body>
         <div id="app">
@@ -37,8 +37,8 @@
 
                     <v-app-bar-title>ElectrodoShop</v-app-bar-title>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text rounded href="#">Inicio</v-btn>
-                    <v-btn color="secondary" text rounded href="ControladorUsuario?accion=historial">Historial de Compra</v-btn>
+                    <v-btn color="secondary" text rounded href="ControladorUsuario">Inicio</v-btn>
+                    <v-btn color="primary" text rounded href="ControladorUsuario?accion=historial">Historial de Compra</v-btn>
                     <v-btn color="secondary" text rounded href="ControladorUsuario?accion=cuenta">Configuracion de cuenta</v-btn>
                     <v-spacer></v-spacer>
                     <v-menu left bottom offset-y rounded="lg">
@@ -84,53 +84,60 @@
                         <v-row>
 
                             <v-col cols="12" class="">
-                                <h2 class="">Todos los productos:</h2>
+                                <h2 class="">Historial de compras</h2>
                             </v-col>
-                            <c:forEach var="dto" items="${listaDeProductos}">
-                                <v-col cols="12" md="3" sm="6">
-                                    <v-card>
-                                        <v-img
-                                            height="300"
-                                            src="../imagenes/productos/1.jpeg"
-                                            ></v-img>
+                            <v-col cols="12" class="">
+                                <v-simple-table>
+                                    <template v-slot:default>
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">
+                                                    Numero de compra
+                                                </th>
+                                                <th class="text-left">
+                                                    Fecha
+                                                </th>
+                                                <th class="text-left">
+                                                    Monto final
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="dto" items="${listaDeCompras}">
+                                                <tr>
+                                                    <td>
+                                                        <c:out value="${ dto.entidad.idVenta }"/>
+                                                    </td>
+                                                    <td>
+                                                        <c:out value="${ dto.entidad.montoFinal }"/>
+                                                    </td>
+                                                    <td>
+                                                        <c:out value="${ dto.entidad.fecha }"/>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </template>
+                                </v-simple-table>
+                            </v-col>
 
-                                        <v-card-title><c:out value="${ dto.entidad.nombreProducto }"/></v-card-title>
-                                        <v-card-text>
-                                            <div class="text-subtitle-1">
-                                                $<c:out value="${ dto.entidad.precio }"/> • <c:out value="${ dto.entidad.existencia }"/> Disponibles
-                                            </div>
-                                            <div class="my-1"><c:out value="${ dto.entidad.descripcionProducto }"/></div>
-                                        </v-card-text>
-                                        <v-divider class="mx-4"></v-divider>
-                                        <v-card-actions>
-                                            <v-btn color="primary" href="ControladorUsuario?accion=comprar&id=<c:out value="${ dto.entidad.idProducto }"/>">
-                                                Comprar
-                                            </v-btn>
-                                            <v-btn color="primary" outlined href="ControladorUsuario?accion=verProducto&id=<c:out value="${ dto.entidad.idProducto }"/>">
-                                                Ver más
-                                            </v-btn>
-                                        </v-card-actions>
-                                    </v-card>
-                                </v-col>
-                            </c:forEach>
-                            
                         </v-row>
                         <c:if test="${mensaje != null}">
-                                <v-snackbar :value="true" :timeout="4000">
-                                    ${mensaje}
+                            <v-snackbar :value="true" :timeout="4000">
+                                ${mensaje}
 
-                                    <template v-slot:action="{ attrs }">
-                                        <v-btn
-                                            color="primary"
-                                            text
-                                            v-bind="attrs"
-                                            @click="snackbar = false"
-                                            >
-                                            Cerrar
-                                        </v-btn>
-                                    </template>
-                                </v-snackbar>
-                            </c:if>
+                                <template v-slot:action="{ attrs }">
+                                    <v-btn
+                                        color="primary"
+                                        text
+                                        v-bind="attrs"
+                                        @click="snackbar = false"
+                                        >
+                                        Cerrar
+                                    </v-btn>
+                                </template>
+                            </v-snackbar>
+                        </c:if>
                     </v-container>
                 </v-main>
 
