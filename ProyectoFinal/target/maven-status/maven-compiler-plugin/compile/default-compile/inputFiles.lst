@@ -24,6 +24,7 @@
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/utilerias/EnviarMail.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/AdministradorDTO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/CategoriaDAO.java
+/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/AdministradorServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/UsuarioDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/AdministradorDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/VentaDTO.java
