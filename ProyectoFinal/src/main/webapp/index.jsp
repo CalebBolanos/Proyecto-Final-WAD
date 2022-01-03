@@ -69,7 +69,7 @@
                                     <v-card-subtitle>Vende tus productos a través de la plataforma.</v-card-subtitle>
 
                                     <v-card-actions class="justify-center" href="proveedor/crearCuenta.jsp">
-                                        <v-btn text color="primary">
+                                        <v-btn text color="primary" href="proveedor/crearCuenta.jsp">
                                             Crear Cuenta
                                         </v-btn>
                                         <v-btn text href="proveedor/iniciarSesion.jsp">

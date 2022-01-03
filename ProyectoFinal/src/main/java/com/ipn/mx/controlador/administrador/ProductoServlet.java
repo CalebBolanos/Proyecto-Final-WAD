@@ -170,6 +170,7 @@ public class ProductoServlet extends HttpServlet {
         try {
 
             if (!request.getParameter("txtIdProducto").equals("")) {//CREAR
+                dto.getEntidad().setImagenProducto(dao.read(dto).getEntidad().getImagenProducto());
                 dao.Update(dto);
                 request.setAttribute("mensaje", "Producto actualizado con exito.");
             } else {

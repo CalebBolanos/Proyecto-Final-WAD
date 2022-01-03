@@ -17,8 +17,10 @@
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/ProcesarSesionAdmin.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Administrador.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/proveedor/GuardarProveedor.java
+/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/proveedor/ProveedorServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/CategoriaDTO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/ProductoDTO.java
+/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/proveedor/ProductoServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/ProcesarInicioSesion.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/CerrarSesion.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Categoria.java
