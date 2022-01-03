@@ -3,7 +3,7 @@
     Created on : 1 ene. 2022, 19:11:01
     Author     : calebbolanos
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@
                     <v-container fluid fill-height>
                         <v-layout align-center justify-center>
                             <v-flex xs12 sm8 md4>
-                                <form method="POST" action="ProcesarInicioSesion">
+                                <form method="POST" action="ProcesarSesionProveedor">
                                     <v-card class="elevation-0" rounded="lg">
                                         <v-card-title class="d-flex align-center justify-center py-7">
                                             <h2 class="text-2xl font-weight-semibold">
@@ -41,7 +41,7 @@
                                             </p>
                                         </v-card-text>
                                         <v-card-text>
-                                            <v-text-field prepend-inner-icon="mdi-account-circle" name="usuario" label="Usuario" type="text" outlined ></v-text-field> 
+                                            <v-text-field prepend-inner-icon="mdi-account-circle" name="usuario" label="Usuario" type="email" outlined ></v-text-field> 
                                             <v-text-field id="password" prepend-inner-icon="mdi-lock" name="contrasena" label="Contraseña" outlined :append-icon="ver ? 'mdi-eye' : 'mdi-eye-off'" :type="ver ? 'text' : 'password'" @click:append="ver = !ver"></v-text-field>
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
@@ -59,6 +59,22 @@
                                 </form>
                             </v-flex>
                         </v-layout>
+                        <c:if test="${param.msg != null}">
+                            <v-snackbar :value="true" :timeout="4000">
+                                ${param.msg}
+
+                                <template v-slot:action="{ attrs }">
+                                    <v-btn
+                                        color="primary"
+                                        text
+                                        v-bind="attrs"
+                                        @click="snackbar = false"
+                                        >
+                                        Cerrar
+                                    </v-btn>
+                                </template>
+                            </v-snackbar>
+                        </c:if>
                     </v-container>
                 </v-main>
             </v-app>

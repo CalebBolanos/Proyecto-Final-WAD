@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.ipn.mx.controlador.administrador;
+package com.ipn.mx.controlador.proveedor;
 
-import com.ipn.mx.modelo.dao.AdministradorDAO;
-import com.ipn.mx.modelo.dto.AdministradorDTO;
+import com.ipn.mx.controlador.administrador.ProcesarSesionAdmin;
+import com.ipn.mx.modelo.dao.ProveedorDAO;
+import com.ipn.mx.modelo.dto.ProveedorDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author calebbolanos
  */
-@WebServlet(name = "ProcesarSesionAdmin", urlPatterns = {"/administrador/ProcesarSesionAdmin"})
-public class ProcesarSesionAdmin extends HttpServlet {
+@WebServlet(name = "ProcesarSesionProveedor", urlPatterns = {"/proveedor/ProcesarSesionProveedor"})
+public class ProcesarSesionProveedor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +36,6 @@ public class ProcesarSesionAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +51,6 @@ public class ProcesarSesionAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.sendRedirect("iniciarSesion.jsp");
     }
 
     /**
@@ -67,7 +65,7 @@ public class ProcesarSesionAdmin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
+        
         request.setCharacterEncoding("UTF-8");
 
         if (!request.getParameter("usuario").equals("") && !request.getParameter("contrasena").equals("")) {
@@ -75,18 +73,18 @@ public class ProcesarSesionAdmin extends HttpServlet {
                 String usuario = new String(request.getParameter("usuario").getBytes(), "UTF-8");
                 String contrasena = new String(request.getParameter("contrasena").getBytes(), "UTF-8");
 
-                AdministradorDAO dao = new AdministradorDAO();
-                AdministradorDTO dto = new AdministradorDTO();
+                ProveedorDAO dao = new ProveedorDAO();
+                ProveedorDTO dto = new ProveedorDTO();
 
-                dto.getEntidad().setUsuario(usuario);
-                dto.getEntidad().setContrasena(contrasena);
+                dto.getEntidad().setCorreo(usuario);
+                dto.getEntidad().setClave(contrasena);
 
                 dto = dao.iniciarSesion(dto);
 
                 if (dto != null) {
                     System.out.println(dto);
                     HttpSession sesion = request.getSession();
-                    sesion.setAttribute("dtoAdministrador", dto);
+                    sesion.setAttribute("dtoProveedor", dto);
 
                     response.sendRedirect("inicio.jsp");
                 } else {

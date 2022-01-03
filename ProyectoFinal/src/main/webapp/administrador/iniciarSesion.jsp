@@ -3,7 +3,7 @@
     Created on : 1 ene. 2022, 19:09:59
     Author     : calebbolanos
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -54,6 +54,22 @@
                                 </form>
                             </v-flex>
                         </v-layout>
+                        <c:if test="${param.msg != null}">
+                            <v-snackbar :value="true" :timeout="4000">
+                                ${param.msg}
+
+                                <template v-slot:action="{ attrs }">
+                                    <v-btn
+                                        color="primary"
+                                        text
+                                        v-bind="attrs"
+                                        @click="snackbar = false"
+                                        >
+                                        Cerrar
+                                    </v-btn>
+                                </template>
+                            </v-snackbar>
+                        </c:if>
                     </v-container>
                 </v-main>
             </v-app>
