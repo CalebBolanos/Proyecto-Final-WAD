@@ -86,9 +86,9 @@ public class ProcesarInicioSesion extends HttpServlet {
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("dtoUsuario", dto);
                     
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("usuario/ControladorUsuario");
                 }else{
-                    response.sendRedirect("iniciarSesion.jsp?msg=Usuario o contraseña incorrecta");
+                    response.sendRedirect("iniciarSesion.jsp?msg=Credenciales incorrectas");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(ProcesarInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,7 +97,7 @@ public class ProcesarInicioSesion extends HttpServlet {
             
             
         }else {
-            response.sendRedirect("iniciarSesion.jsp?msg=Usuario o contraseña incorrecta");
+            response.sendRedirect("iniciarSesion.jsp?msg=Credenciales incorrectas");
         }
         
     }

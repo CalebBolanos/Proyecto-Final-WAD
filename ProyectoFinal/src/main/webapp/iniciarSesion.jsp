@@ -1,43 +1,94 @@
 <%-- 
-    Document   : iniciarSesion
-    Created on : 30 dic. 2021, 21:27:26
+    Document   : iniciarSesion.jsp
+    Created on : 1 ene. 2022, 19:36:30
     Author     : calebbolanos
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
-
-        <title>Ejercicio3</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     </head>
-    <body style="display: flex; align-items: center; padding-top: 40px; padding-bottom: 40px; background-color: #f5f5f5;">
-        <div class="container">
-            <main class="form-signin" style="box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12); background-color: white;">
-                <div class="p-5">
-                    <form method="POST" action="ProcesarInicioSesion">
-                        <h1 class="h3 my-3 fw-normal">Práctica Final - Iniciar Sesión</h1>
 
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="name@example.com" >
-                            <label for="usuario">Usuario</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Password" >
-                            <label for="contrasena">Contraseña</label>
-                        </div>
-                        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Iniciar Sesión</button>
-                    </form>
-                </div>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main class="grey lighten-2">
+                    <v-container fluid fill-height>
+                        <v-layout align-center justify-center>
+                            <v-flex xs12 sm8 md4>
+                                <form method="POST" action="ProcesarInicioSesion">
+                                    <v-card class="elevation-0" rounded="lg">
+                                        <v-card-title class="d-flex align-center justify-center py-7">
+                                            <h2 class="text-2xl font-weight-semibold">
+                                                ElectrodoShop
+                                            </h2>
+                                        </v-card-title>
+                                        <v-card-text>
+                                            <p class="title font-weight-semibold text--primary mb-2">
+                                                ¡Bienvenido a ElectrodoShop!
+                                            </p>
+                                            <p class="mb-2">
+                                                Inicia sesión en tu cuenta para poder acceder al sistema
+                                            </p>
+                                        </v-card-text>
+                                        <v-card-text>
+                                            <v-text-field prepend-inner-icon="mdi-account-circle" name="usuario" label="Usuario" type="text" outlined ></v-text-field> 
+                                            <v-text-field id="password" prepend-inner-icon="mdi-lock" name="contrasena" label="Contraseña" outlined :append-icon="ver ? 'mdi-eye' : 'mdi-eye-off'" :type="ver ? 'text' : 'password'" @click:append="ver = !ver"></v-text-field>
+                                            <v-card-actions>
+                                                <v-spacer></v-spacer>
+                                                <v-btn type="submit" block color="primary">Iniciar Sesion</v-btn>
+                                                <v-spacer></v-spacer>
+                                            </v-card-actions>
+                                            <span class="d-flex align-center justify-center flex-wrap">
+                                                <span class="me-2">
+                                                    ¿Aún no estas registrado?
+                                                </span>
+                                                <a href="crearCuenta.jsp" >Crea una cuenta aqui</a>
+                                            </span>
+                                        </v-card-text>
+                                    </v-card>
+                                </form>
+                            </v-flex>
+                        </v-layout>
+                        <c:if test="${param.msg != null}">
+                            <v-snackbar :value="true" :timeout="4000">
+                                ${param.msg}
 
-            </main>
+                                <template v-slot:action="{ attrs }">
+                                    <v-btn
+                                        color="primary"
+                                        text
+                                        v-bind="attrs"
+                                        @click="snackbar = false"
+                                        >
+                                        Cerrar
+                                    </v-btn>
+                                </template>
+                            </v-snackbar>
+                        </c:if>
+                    </v-container>
+                </v-main>
+            </v-app>
         </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: () => ({
+                        ver: false
+                    }),
+                vuetify: new Vuetify({
+                }),
+            })
+        </script>
     </body>
-</html>
 
+</html>
