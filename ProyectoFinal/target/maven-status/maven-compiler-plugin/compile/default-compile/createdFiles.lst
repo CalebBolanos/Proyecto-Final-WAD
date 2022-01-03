@@ -6,8 +6,10 @@ com/ipn/mx/controlador/UsuarioServlet.class
 com/ipn/mx/modelo/dao/AdministradorDAO.class
 com/ipn/mx/modelo/dto/UsuarioDTO.class
 com/ipn/mx/modelo/dao/ProductoDAO.class
+com/ipn/mx/controlador/administrador/ProductoServlet.class
 com/ipn/mx/controlador/administrador/ProveedorServlet.class
 com/ipn/mx/utilerias/EnviarMail.class
+com/ipn/mx/controlador/administrador/ClienteServlet.class
 com/ipn/mx/modelo/dao/GraficaDAO.class
 com/ipn/mx/controlador/CategoriaServlet.class
 com/ipn/mx/modelo/entidades/Administrador.class

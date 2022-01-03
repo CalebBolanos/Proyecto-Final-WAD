@@ -1,5 +1,6 @@
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Usuario.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/UsuarioDTO.java
+/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/ProductoServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/ProductoDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/ProductoServlet.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/entidades/Producto.java
@@ -27,3 +28,4 @@
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dao/AdministradorDAO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/modelo/dto/VentaDTO.java
 /Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/ProveedorServlet.java
+/Users/calebbolanos/Documents/GitHub/Proyecto-Final-WAD/ProyectoFinal/src/main/java/com/ipn/mx/controlador/administrador/ClienteServlet.java
